@@ -3,17 +3,18 @@ version: '3.7'
 services:
   postgres:
     container_name: 'compasso-api_db'
-    image: postgres
+    image: postgres:alpine
     volumes:
       - /postgres-data:/var/lib/postgresql/data
     restart: always
     ports:
-      - '5431:5431'
+      - '5432:5432'
     networks:
       - default
     environment:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: compasso_db
     restart: on-failure
 networks:
   default:
