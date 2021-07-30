@@ -8,11 +8,6 @@ import { City } from './entities/city.entity';
 export class CityController {
   constructor(private readonly cityService: CityService) {}
 
-  /*  @Get()
-  async findOne(@Query('searchBy') searchBy: string) {
-    return true;
-  } */
-
   @Get()
   async findByName(@Query('name') name: string): Promise<City[]> {
     // console.log(name);
