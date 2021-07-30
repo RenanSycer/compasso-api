@@ -1,11 +1,5 @@
-import {
-  ConflictException,
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { CreateCityDto } from './dto/create-city.dto';
 import { City } from './entities/city.entity';
 import { CityRepository } from './repositories/city.repository';

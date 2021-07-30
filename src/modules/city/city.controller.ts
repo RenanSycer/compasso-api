@@ -10,14 +10,12 @@ export class CityController {
 
   @Get()
   async findByName(@Query('name') name: string): Promise<City[]> {
-    // console.log(name);
     const cities = await this.cityService.findByCityName(name);
     return cities;
   }
 
   @Get('state')
   async findByState(@Query('state') state: string): Promise<City[]> {
-    // console.log(name);
     const cities = await this.cityService.findByCityState(state);
     return cities;
   }
