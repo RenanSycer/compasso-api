@@ -8,7 +8,6 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
-import { ValidatePromise } from 'class-validator';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { ReturnCustomerDto } from './dto/return-customer.dto';
@@ -40,15 +39,9 @@ export class CustomerController {
     };
   }
 
-  @Get('name')
-  async findByName(
-    @Query('nameCustomer') nameCustomer: string,
-  ): Promise<Customer[]> {
-    console.log(nameCustomer);
-    const customer = await this.customerService.findCustomerByName(
-      nameCustomer,
-    );
-    return customer;
+  @Get() async findFilter(@Query('value') value: string): Promise<Customer[]> {
+    const cities = await this.customerService.findCustomerByName(value);
+    return cities;
   }
 
   /*  @Patch(':id')

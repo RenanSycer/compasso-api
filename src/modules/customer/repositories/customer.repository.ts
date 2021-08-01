@@ -40,30 +40,15 @@ export class CustomerRepository extends Repository<Customer> {
     return customer;
   }
 
-  async findByName(name: string): Promise<Customer[]> {
-    console.log(name);
+  async findByName(customerName: string): Promise<Customer[]> {
     const customer = await this.find({
-      where: { name: name },
+      where: { name: customerName },
     });
-    if (!customer) {
+
+    if (!customer || customer.length < 1) {
       throw new NotFoundException('Customer not found');
     }
 
     return customer;
   }
-
-  /* private async preloadCity(name: string, state: string): Promise<City> {
-    const cityRepository = this.manager.getCustomRepository(CityRepository);
-    const existingCity = await cityRepository.findOne({
-      where: { name: name, state: state },
-    });
-
-    if (existingCity) {
-      return existingCity;
-    }
-
-    const newCIty = await cityRepository.create({ name, state });
-
-    return newCIty;
-  } */
 }

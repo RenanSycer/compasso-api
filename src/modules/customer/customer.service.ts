@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CityRepository } from '../city/repositories/city.repository';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { Customer } from './entities/customer.entitiy';
 import { CustomerRepository } from './repositories/customer.repository';
@@ -28,9 +27,8 @@ export class CustomerService {
     return customer;
   }
 
-  async findCustomerByName(name: string): Promise<Customer[]> {
-    console.log(name);
-    const customer = await this.customerRepository.findByName(name);
+  async findCustomerByName(teste: string): Promise<Customer[]> {
+    const customer = await this.customerRepository.findByName(teste);
     return customer;
   }
 }
