@@ -1,5 +1,8 @@
 import { ConflictException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { CustomerModule } from '../customer/customer.module';
+import { CustomerService } from '../customer/customer.service';
+import { CustomerRepository } from '../customer/repositories/customer.repository';
 import { CityService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { CityRepository } from './repositories/city.repository';
@@ -10,12 +13,15 @@ const mockCityRepository = () => ({
   findByState: jest.fn(),
 });
 
+const mockCustomerRepository = () => ({});
+
 describe('CityService', () => {
   let cityRepository;
   let service;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [CustomerModule],
       providers: [
         CityService,
         {

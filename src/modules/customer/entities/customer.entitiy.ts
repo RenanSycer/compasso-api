@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class City extends BaseEntity {
+export class Customer extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -16,7 +16,16 @@ export class City extends BaseEntity {
   name: string;
 
   @Column({ nullable: false })
-  state: string;
+  surname: string;
+
+  @Column({ nullable: false })
+  gender: string;
+
+  @Column({ nullable: false })
+  birthdate: string;
+
+  @Column({ nullable: false })
+  city: string;
 
   @CreateDateColumn()
   createdAt: Date;
