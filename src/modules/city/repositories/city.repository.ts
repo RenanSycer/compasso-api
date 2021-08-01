@@ -43,7 +43,7 @@ export class CityRepository extends Repository<City> {
       where: { name: city },
     });
 
-    if (!result) {
+    if (!result || result.length < 1) {
       throw new NotFoundException(`No cities found with that name`);
     }
 
@@ -55,7 +55,7 @@ export class CityRepository extends Repository<City> {
       where: { state: cityState },
     });
 
-    if (!result) {
+    if (!result || result.length < 1) {
       throw new NotFoundException(`No cities found with that state`);
     }
 
