@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CityService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { ReturnCityDto } from './dto/return-city.dto';
@@ -21,7 +28,9 @@ export class CityController {
   }
 
   @Post()
-  async create(@Body() createCityDto: CreateCityDto): Promise<ReturnCityDto> {
+  async create(
+    @Body(ValidationPipe) createCityDto: CreateCityDto,
+  ): Promise<ReturnCityDto> {
     const city = await this.cityService.createCity(createCityDto);
     return {
       city,
