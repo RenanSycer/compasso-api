@@ -47,15 +47,23 @@ $ yarn install
 
 **Configurando .env.example**
 
+```
+.env.example
+```
+
 - Na raiz do projeto, há um arquivo de exemplo, basta remover o sufixo .example e manter o .env
-- As configuração já pré-inseridas no examplo são o suficiente para prover as variáveis para o docker-compose e para o arquivo de configurações do Nest
+
+```
+.env
+```
+- As configuração já pré-inseridas no example são o suficiente para prover as variáveis para o docker-compose e para o arquivo de configurações do Nest
 - Configure da forma que desejar ou mantenha-o. (não esquecer de remover o sufixo .example)
 
 
 **Docker Compose**
 
 ```bash
-$ docker-compose up -d
+$ sudo docker-compose up -d
 ```
 
 ## Rodando a aplicação
@@ -78,7 +86,7 @@ $ yarn run start
 $ yarn run start:dev
 ```
 
-## Testing!
+## Testing
 
 ```bash
 # unit tests
