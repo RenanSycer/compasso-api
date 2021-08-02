@@ -1,8 +1,5 @@
 import { ConflictException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { CustomerModule } from '../customer/customer.module';
-import { CustomerService } from '../customer/customer.service';
-import { CustomerRepository } from '../customer/repositories/customer.repository';
 import { CityService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { CityRepository } from './repositories/city.repository';
@@ -13,15 +10,13 @@ const mockCityRepository = () => ({
   findByState: jest.fn(),
 });
 
-const mockCustomerRepository = () => ({});
-
+// begin of suit
 describe('CityService', () => {
   let cityRepository;
   let service;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [CustomerModule],
       providers: [
         CityService,
         {
@@ -40,7 +35,7 @@ describe('CityService', () => {
     expect(cityRepository).toBeDefined();
   });
 
-  // testing city.repository storeCity
+  // #1 testing city.repository storeCity
   describe('storeCity', () => {
     let mockCreateCityDto: CreateCityDto;
 
@@ -71,7 +66,7 @@ describe('CityService', () => {
     });
   });
 
-  // testing city.repository findByName
+  // #2 testing city.repository findByName
   describe('findByName', () => {
     it('should return cities object found by the given name', async () => {
       const cityName = 'City';
@@ -96,7 +91,7 @@ describe('CityService', () => {
     });
   });
 
-  // testing city.repository findByState
+  // #3 testing city.repository findByState
   describe('findByState', () => {
     it('should return cities object found by the given state', async () => {
       const cityState = 'State';
