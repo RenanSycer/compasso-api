@@ -2,10 +2,9 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { City } from 'src/modules/city/entities/city.entity';
-import { CityRepository } from 'src/modules/city/repositories/city.repository';
 import { EntityRepository, Repository } from 'typeorm';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
+import { UpdateCostumerDto } from '../dto/update-customer.dto';
 import { Customer } from '../entities/customer.entitiy';
 
 @EntityRepository(Customer)
@@ -50,5 +49,41 @@ export class CustomerRepository extends Repository<Customer> {
     }
 
     return customer;
+  }
+
+  async updateCustomer(
+    id: string,
+    updateCustomerDto: UpdateCostumerDto,
+  ): Promise<Customer> {
+    const customer = await this.findById(+id);
+
+    if (!customer) {
+      throw new NotFoundException('Customer not found');
+    }
+
+    const { name, surname, gender, birthdate, city } = updateCustomerDto;
+    customer.name = name ? name : customer.name;
+    customer.surname = surname ? surname : customer.surname;
+    customer.gender = gender ? gender : customer.gender;
+    customer.birthdate = birthdate ? birthdate : customer.birthdate;
+    customer.city = city ? city : customer.city;
+
+    try {
+      await customer.save();
+    } catch (error) {
+      throw new InternalServerErrorException('Error during the update process');
+    }
+
+    return customer;
+  }
+
+  async deleteCustomer(id: string) {
+    const customer = await this.findById(+id);
+
+    if (!customer) {
+      throw new NotFoundException('Customer not found');
+    }
+
+    return await this.delete(id);
   }
 }

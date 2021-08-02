@@ -1,6 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateCustomerDto } from './dto/create-customer.dto';
+import { UpdateCostumerDto } from './dto/update-customer.dto';
 import { Customer } from './entities/customer.entitiy';
 import { CustomerRepository } from './repositories/customer.repository';
 
@@ -30,5 +31,21 @@ export class CustomerService {
   async findCustomerByName(teste: string): Promise<Customer[]> {
     const customer = await this.customerRepository.findByName(teste);
     return customer;
+  }
+
+  async updateCustomer(
+    id: string,
+    updateCustomerDto: UpdateCostumerDto,
+  ): Promise<Customer> {
+    const updated = await this.customerRepository.updateCustomer(
+      id,
+      updateCustomerDto,
+    );
+
+    return updated;
+  }
+
+  async deleteCustomer(id: string) {
+    return await this.customerRepository.deleteCustomer(id);
   }
 }
