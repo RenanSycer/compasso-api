@@ -9,7 +9,7 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
-import { ApiBody, ApiCreatedResponse, ApiResponse } from '@nestjs/swagger';
+import { ApiBody, ApiCreatedResponse } from '@nestjs/swagger';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { ReturnCustomerDto } from './dto/return-customer.dto';

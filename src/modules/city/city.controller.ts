@@ -6,7 +6,7 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
-import { ApiBody, ApiCreatedResponse, ApiQuery } from '@nestjs/swagger';
+import { ApiBody, ApiCreatedResponse } from '@nestjs/swagger';
 import { CityService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { ReturnCityDto } from './dto/return-city.dto';
