@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateCityDto {
@@ -10,6 +11,7 @@ export class CreateCityDto {
   @MaxLength(200, {
     message: 'City name is too longer',
   })
+  @ApiProperty()
   readonly name: string;
 
   @IsString({
@@ -21,5 +23,6 @@ export class CreateCityDto {
   @MaxLength(200, {
     message: 'City state is too longer',
   })
+  @ApiProperty()
   readonly state: string;
 }

@@ -6,6 +6,7 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiBody, ApiCreatedResponse, ApiQuery } from '@nestjs/swagger';
 import { CityService } from './city.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { ReturnCityDto } from './dto/return-city.dto';
@@ -16,18 +17,30 @@ export class CityController {
   constructor(private readonly cityService: CityService) {}
 
   @Get()
+  @ApiCreatedResponse({
+    description:
+      'Returns an array of cities based on a name query param given.',
+  })
   async findByName(@Query('name') name: string): Promise<City[]> {
     const cities = await this.cityService.findByCityName(name);
     return cities;
   }
 
   @Get('state')
+  @ApiCreatedResponse({
+    description:
+      'Returns an array of cities based on a state query param given.',
+  })
   async findByState(@Query('state') state: string): Promise<City[]> {
     const cities = await this.cityService.findByCityState(state);
     return cities;
   }
 
   @Post()
+  @ApiCreatedResponse({
+    description: 'Create a City.',
+  })
+  @ApiBody({ type: CreateCityDto })
   async create(
     @Body(ValidationPipe) createCityDto: CreateCityDto,
   ): Promise<ReturnCityDto> {
