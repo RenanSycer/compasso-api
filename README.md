@@ -1,38 +1,63 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="120" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://logodownload.org/wp-content/uploads/2018/09/uol-logo-4-1.png" width="100" marin_left="10px" alt="Uol logo" /></a>
+ 
 </p>
+
+
+## Compasso API
+
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  
+## Descrição do repositório
 
-## Description
+Compasso Api é um projeto criado com intuito para avilação de conhecimento da Compasso Uol.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A API foi desenvolvida em Node JS , Framework Nest JS, banco de dados PostgresSQL, Swagger para promover a documentação.
+
+Artefatos providos no repositório: Código da fonte, arquivo docker-compose para instalação do banco de dados, .env.example com variaveis de ambientes de exmplo para configuração da API.
 
 ## Installation
+
+**Dependências: NodeJS v14.17.4, NPM ou Yarn.**
+
+-Clone o respositório
+
+
+```bash
+$ git clone https://github.com/RenanSycer/compasso-api.git
+$ cd compasso-api
+```
+
+**Instale as dependencias do projeto**
+
 
 ```bash
 $ npm install
 ```
+Ou usando Yarn
 
-## Running the app
+```bash
+$ yarn install
+```
+
+**Configurando .env.example**
+
+- Na raiz do projeto, há um arquivo de exemplo, basta remover o sufixo .example e manter o .env
+- As configuração já pré-inseridas no examplo são o suficiente para prover as variáveis para o docker-compose e para o arquivo de configurações do Nest
+- Configure da forma que desejar ou mantenha-o. (não esquecer de remover o sufixo .example)
+
+
+** Docker Compose **
+
+```bash
+$ docker-compose up -d
+```
+
+## Rodando a aplicação
 
 ```bash
 # development
@@ -40,34 +65,43 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+Ou usando Yarn
+
+```bash
+# development
+$ yarn run start
+
+# watch mode
+$ yarn run start:dev
+```
+
+## Testing!
 
 ```bash
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
+# unit test on watch mode
+$ npm run test:watch
+```
+Ou usando Yarn
 
-# test coverage
-$ npm run test:cov
+
+```bash
+# unit tests
+$ yarn run test
+
+# unit test on watch mode
+$ yarn run test:watch
 ```
 
-## Support
+## Swagger
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Para acessar a documentação do swagger, basta acessar:
 
-## Stay in touch
+```
+http://localhost:3000/api
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
