@@ -1,6 +1,7 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="120" alt="Nest Logo" /></a>
-  <a href="http://nestjs.com/" target="blank"><img src="https://logodownload.org/wp-content/uploads/2018/09/uol-logo-4-1.png" width="100" marin_left="10px" alt="Uol logo" /></a>
+  <br>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="150" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://logodownload.org/wp-content/uploads/2018/09/uol-logo-4-1.png" width="120" marin_left="10px" alt="Uol logo" /></a>
  
 </p>
 
