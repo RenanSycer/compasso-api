@@ -52,7 +52,7 @@ $ yarn install
 - Configure da forma que desejar ou mantenha-o. (não esquecer de remover o sufixo .example)
 
 
-** Docker Compose **
+**Docker Compose**
 
 ```bash
 $ docker-compose up -d
